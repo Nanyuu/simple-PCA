@@ -12,7 +12,7 @@ def plot_point(x):
     plt.show()
 
 def plot_line(Feature_Vector,initial_point):
-    k= Feature_Vector[1]/Feature_Vector[0] #k 斜率
+    k= Feature_Vector[1]/Feature_Vector[0] #k Slope 斜率
     x = np.array([-15,15])
     y = x*k
     print(x)
@@ -22,8 +22,6 @@ def plot_line(Feature_Vector,initial_point):
 
         x1 = (k * (initial_point[1,i]) + initial_point[0,i]) / (k * k + 1);
         y1 = k * x1;
-        print("x1 = ",format(x1))
-        print("y1 = ",format(y1))
         plt.scatter(x1,y1)
     plt.show()
 
@@ -33,7 +31,7 @@ if __name__ == '__main__':
     initial_point=initialize_point()
     #未零均值化
     # plot_point(initial_point)
-    cov_mat = np.cov(initial_point) #协方差矩阵
+    cov_mat = np.cov(initial_point) #协方差矩阵 covariance matrix
     print("cov_mat = ",format(cov_mat))
     Feature_Vector, Feature_Value = np.linalg.eig(cov_mat)
     print("feature_vector=",format(Feature_Vector))
